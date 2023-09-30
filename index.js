@@ -71,8 +71,8 @@ app.post("/api/create-checkout-session", async (req, res) => {
         mode: "payment",
         /*success_url: `http://localhost:3000/order-success/${order.products.payload.id}`,
         cancel_url: `http://localhost:3000/payment-failed`*/
-        success_url: `http://localhost:${3000}/order-success/${order.products.payload.id}`,
-        cancel_url: `http://localhost:${3000}/payment-failed`,
+        success_url: `https://shopbestify.onrender.com/order-success/${order.products.payload.id}`,
+        cancel_url: `https://shopbestify.onrender.com/payment-failed`,
     });
 
     res.json({ id: session.id })
