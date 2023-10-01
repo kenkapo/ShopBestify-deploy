@@ -41,7 +41,8 @@ app.use("/currentuser", currentUserRouter.router);
 main().catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect(process.env.MONGO_URL);
+    //await mongoose.connect(process.env.MONGO_URL);
+    await mongoose.connect("mongodb://127.0.0.1:27017/ecommerce");
     console.log('database connected')
 }
 
@@ -69,8 +70,8 @@ app.post("/api/create-checkout-session", async (req, res) => {
         payment_method_types: ["card"],
         line_items: lineItems,
         mode: "payment",
-        /*success_url: `http://localhost:3000/order-success/${order.products.payload.id}`,
-        cancel_url: `http://localhost:3000/payment-failed`*/
+        //success_url: `http://localhost:3000/order-success/${order.products.payload.id}`,
+        //cancel_url: `http://localhost:3000/payment-failed`
         success_url: `https://shopbestify.onrender.com/order-success/${order.products.payload.id}`,
         cancel_url: `https://shopbestify.onrender.com/payment-failed`,
     });
